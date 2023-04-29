@@ -1,39 +1,22 @@
-import { Button } from './Button';
+import { action } from '@storybook/addon-actions';
+import React from 'react';
 
-// More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
+import Button from '~/components/button';
+
 export default {
-  title: 'Example/Button',
-  component: Button,
-  tags: ['autodocs'],
-  argTypes: {
-    backgroundColor: { control: 'color' },
-  },
+    title: 'Form/Button',
+    component: Button,
 };
 
-// More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
-export const Primary = {
-  args: {
-    primary: true,
-    label: 'Button',
-  },
-};
+export const Default = (args) => (
+    <Button {...args} onClick={action('clicked')}>
+        Click me
+    </Button>
+);
 
-export const Secondary = {
-  args: {
-    label: 'Button',
-  },
-};
-
-export const Large = {
-  args: {
-    size: 'large',
-    label: 'Button',
-  },
-};
-
-export const Small = {
-  args: {
-    size: 'small',
-    label: 'Button',
-  },
+Default.args = {
+    label: 'CustomBtn',
+    action: () => {
+        alert('Hi,just clicked');
+    },
 };
