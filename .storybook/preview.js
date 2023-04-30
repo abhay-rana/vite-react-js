@@ -23,4 +23,13 @@ export const parameters = {
     },
 };
 
+// Decorators global style
+// export const decorators = [
+//     (Story) => (
+//         <div style={styles}>
+//             <Story />
+//         </div>
+//     ),
+// ];
+
 export default preview;
