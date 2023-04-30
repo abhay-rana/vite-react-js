@@ -5,11 +5,11 @@ export default {
     component: Button,
 };
 
-const Template = (args) => <Button {...args} />;
+const Template = (args) => <Button {...args}>{args.children}</Button>;
 
 export const Default = Template.bind({});
 Default.args = {
-    label: 'Button',
+    children: 'default button',
 };
 export const Primary = Template.bind({});
 Primary.args = {

@@ -1,24 +1,35 @@
 import PropTypes from 'prop-types';
+import { forwardRef, memo } from 'react';
+import { twMerge } from 'tailwind-merge';
+import { Spinner } from '~/stories/spinner';
 
-export const Button = ({
-    primary,
-    secondary,
-    danger,
-    upperCase,
-    micro,
-    small,
-    large,
-    text,
-    link,
-    border,
-    warning,
-    disabled,
-    block,
-    children = 'default children',
-    rounded,
-    success,
-    className,
-}) => {
+export const Button = (
+    {
+        primary,
+        secondary,
+        danger,
+        upperCase,
+        micro,
+        small,
+        large,
+        text,
+        loader,
+        link,
+        style,
+        tooltip,
+        onClick,
+        border,
+        warning,
+        disabled,
+        block,
+        children = 'default children',
+        rounded,
+        success,
+        className,
+    },
+    ref
+) => {
+    const isDisabled = loader ? true : disabled ? true : false;
     let extra_class =
         'round-none flex items-center justify-center relative focus:outline-none rounded-lg';
     if (!!upperCase) {
@@ -109,16 +120,70 @@ export const Button = ({
 
     return (
         <>
-            <div className={extra_class}>{children}</div>
+            <button
+                onClick={onClick || null}
+                disabled={isDisabled}
+                className={twMerge(extra_class)}
+                // ref={ref}
+                title={tooltip}
+                style={{ position: loader ? 'relative' : '', ...(style || {}) }}
+            >
+                <div className="flex flex-row items-center justify-center text-center">
+                    {children}
+                    {!loader ? null : micro ? (
+                        <Spinner
+                            className="absolute"
+                            style={{
+                                width: '12px',
+                                height: '12px',
+                                top: '4px',
+                                right: '5px',
+                            }}
+                        />
+                    ) : !loader ? null : small ? (
+                        <Spinner
+                            className="absolute"
+                            style={{
+                                width: '15px',
+                                height: '15px',
+                                top: '6px',
+                                right: '5px',
+                            }}
+                        />
+                    ) : large ? (
+                        <Spinner
+                            className="absolute"
+                            style={{
+                                width: '18px',
+                                height: '18px',
+                                top: '11px',
+                                right: '5px',
+                            }}
+                        />
+                    ) : (
+                        <Spinner
+                            className="absolute"
+                            style={{
+                                width: '16px',
+                                height: '16px',
+                                top: '8px',
+                                right: '5px',
+                            }}
+                        />
+                    )}
+                </div>
+            </button>
         </>
     );
 };
+
+export default memo(forwardRef(Button));
 
 Button.propTypes = {
     primary: PropTypes.bool,
     danger: PropTypes.bool,
     secondary: PropTypes.bool,
-    children: PropTypes.node,
+    children: PropTypes.node.isRequired,
     rounded: PropTypes.bool,
     disabled: PropTypes.bool,
     block: PropTypes.bool,
@@ -127,9 +192,13 @@ Button.propTypes = {
     upperCase: PropTypes.bool,
     micro: PropTypes.bool,
     className: PropTypes.string,
+    tooltip: PropTypes.string,
     warning: PropTypes.bool,
     border: PropTypes.bool,
     small: PropTypes.bool,
     large: PropTypes.bool,
     text: PropTypes.string,
+    onClick: PropTypes.func,
+    loader: PropTypes.bool,
+    style: PropTypes.object,
 };
