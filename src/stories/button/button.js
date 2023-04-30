@@ -126,7 +126,10 @@ export const Button = (
                 className={twMerge(extra_class)}
                 // ref={ref}
                 title={tooltip}
-                style={{ position: loader ? 'relative' : '', ...(style || {}) }}
+                style={{
+                    position: loader ? 'relative' : '',
+                    ...(style || {}),
+                }}
             >
                 <div className="flex flex-row items-center justify-center text-center">
                     {children}
@@ -177,7 +180,7 @@ export const Button = (
     );
 };
 
-export default memo(forwardRef(Button));
+Button.displayName = 'Button';
 
 Button.propTypes = {
     primary: PropTypes.bool,
@@ -201,4 +204,7 @@ Button.propTypes = {
     onClick: PropTypes.func,
     loader: PropTypes.bool,
     style: PropTypes.object,
+    ref: PropTypes.node,
 };
+
+export default memo(forwardRef(Button));

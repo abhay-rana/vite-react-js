@@ -1,4 +1,13 @@
+import { DocsContainer, DocsPage } from '@storybook/addon-docs/blocks';
+// import { addParameters } from '@storybook/react';
 import 'tailwindcss/tailwind.css';
+
+// addParameters({
+//     docs: {
+//         container: DocsContainer,
+//         page: DocsPage,
+//     },
+// });
 
 /** @type { import('@storybook/react').Preview } */
 const preview = {

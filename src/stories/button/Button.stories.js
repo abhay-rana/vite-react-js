@@ -1,11 +1,24 @@
+import { useRef } from 'react';
 import { Button } from '~/stories/button/button';
 
 export default {
     title: 'form/Button',
     component: Button,
+    tags: ['autodocs'],
+    parameters: {
+        // More on how to position stories at: https://storybook.js.org/docs/react/configure/story-layout
+        layout: 'fullscreen',
+    },
 };
 
-const Template = (args) => <Button {...args}>{args.children}</Button>;
+const Template = (args) => {
+    const ref = useRef();
+    return (
+        <Button {...args} ref={ref}>
+            {args.children}
+        </Button>
+    );
+};
 
 export const Default = Template.bind({});
 Default.args = {
