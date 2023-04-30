@@ -7,9 +7,7 @@ import { Spinner } from '~/stories/spinner';
 export const Button = (
     {
         upperCase,
-        micro,
-        small,
-        large,
+
         text,
         loader,
         link,
@@ -18,7 +16,6 @@ export const Button = (
         onClick,
         border,
 
-        disabled,
         block,
         children = 'default children',
 
@@ -26,10 +23,11 @@ export const Button = (
         color = 'primary',
         shape = 'pill',
         size = 'md',
+        state = 'normal',
     },
     ref
 ) => {
-    const isDisabled = loader ? true : disabled ? true : false;
+    const isDisabled = loader ? true : state === 'disabled' ? true : false;
     let extra_class =
         'round-none flex items-center justify-center relative focus:outline-none rounded-lg';
     if (!!upperCase) {
@@ -108,7 +106,7 @@ export const Button = (
     } else {
         extra_class += ' block';
     }
-    if (disabled) {
+    if (state === 'disabled') {
         extra_class += ' opacity-50 cursor-not-allowed';
     }
     if (shape === 'pill') {
@@ -135,7 +133,7 @@ export const Button = (
             >
                 <div className="flex flex-row items-center justify-center text-center">
                     {children}
-                    {!loader ? null : micro ? (
+                    {!loader ? null : size === 'xs' ? (
                         <Spinner
                             className="absolute"
                             style={{
@@ -145,7 +143,7 @@ export const Button = (
                                 right: '5px',
                             }}
                         />
-                    ) : !loader ? null : small ? (
+                    ) : !loader ? null : size === 'sm' ? (
                         <Spinner
                             className="absolute"
                             style={{
@@ -155,7 +153,7 @@ export const Button = (
                                 right: '5px',
                             }}
                         />
-                    ) : large ? (
+                    ) : size === 'lg' ? (
                         <Spinner
                             className="absolute"
                             style={{
@@ -189,9 +187,9 @@ Button.propTypes = {
     shape: PropTypes.oneOf(options.shape),
     size: PropTypes.oneOf(options.size),
     weight: PropTypes.oneOf(options.weight),
+    state: PropTypes.oneOf(options.state),
     children: PropTypes.node.isRequired,
 
-    disabled: PropTypes.bool,
     block: PropTypes.bool,
 
     link: PropTypes.bool,

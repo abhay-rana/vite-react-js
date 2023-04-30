@@ -3,4 +3,5 @@ export const options = {
     size: ['sm', 'xs', 'md', 'lg'],
     shape: ['pill', 'brick'],
     weight: ['text', 'ghost', 'outline', 'solid'],
+    state: ['normal', 'active', 'disabled', 'loading', 'hover'],
 };

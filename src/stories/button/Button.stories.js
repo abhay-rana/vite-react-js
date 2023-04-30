@@ -82,3 +82,8 @@ Large.storyName = 'Size: Large';
 Large.args = {
     size: 'lg',
 };
+export const Disabled = Template.bind({});
+Disabled.storyName = 'State: Disabled';
+Disabled.args = {
+    state: 'disabled',
+};
