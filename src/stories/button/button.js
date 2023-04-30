@@ -1,13 +1,11 @@
 import PropTypes from 'prop-types';
 import { forwardRef, memo } from 'react';
 import { twMerge } from 'tailwind-merge';
+import { options } from '~/stories/button/constant';
 import { Spinner } from '~/stories/spinner';
 
 export const Button = (
     {
-        primary,
-        secondary,
-        danger,
         upperCase,
         micro,
         small,
@@ -19,13 +17,15 @@ export const Button = (
         tooltip,
         onClick,
         border,
-        warning,
+
         disabled,
         block,
         children = 'default children',
-        rounded,
-        success,
+
         className,
+        color = 'primary',
+        shape = 'pill',
+        size = 'md',
     },
     ref
 ) => {
@@ -35,19 +35,19 @@ export const Button = (
     if (!!upperCase) {
         extra_class += ' uppercase';
     }
-    if (micro) {
+    if (size === 'xs') {
         extra_class += ' h-5 px-6 text-xs';
-    } else if (small) {
+    } else if (size === 'sm') {
         extra_class += '  h-7  px-6 text-base';
-    } else if (large) {
+    } else if (size === 'lg') {
         extra_class += ' h-10  px-7';
-    } else {
+    } else if (size === 'md') {
         extra_class += ' h-8 px-6 text-base';
     }
     if (text) {
         extra_class += ' text-gray-dark';
     } else {
-        if (primary) {
+        if (!!color && color === 'primary') {
             if (link) {
                 extra_class += ' bg-transparent text-primary';
             } else if (border) {
@@ -56,7 +56,7 @@ export const Button = (
             } else {
                 extra_class += ' bg-primary text-white';
             }
-        } else if (secondary) {
+        } else if (!!color && color === 'secondary') {
             if (link) {
                 extra_class += ' bg-transparent text-secondary';
             } else if (border) {
@@ -65,7 +65,7 @@ export const Button = (
             } else {
                 extra_class += ' bg-secondary text-white';
             }
-        } else if (warning) {
+        } else if (!!color && color === 'warning') {
             if (link) {
                 extra_class += ' bg-transparent text-warning';
             } else if (border) {
@@ -74,7 +74,7 @@ export const Button = (
             } else {
                 extra_class += ' bg-warning text-white';
             }
-        } else if (danger) {
+        } else if (!!color && color === 'danger') {
             if (link) {
                 extra_class += ' bg-transparent text-danger';
             } else if (border) {
@@ -83,7 +83,7 @@ export const Button = (
             } else {
                 extra_class += ' bg-danger text-white';
             }
-        } else if (success) {
+        } else if (!!color && color === 'success') {
             if (link) {
                 extra_class += ' bg-transparent text-success';
             } else if (border) {
@@ -111,8 +111,10 @@ export const Button = (
     if (disabled) {
         extra_class += ' opacity-50 cursor-not-allowed';
     }
-    if (rounded) {
+    if (shape === 'pill') {
         extra_class += ' rounded-full';
+    } else if (shape === 'brick') {
+        extra_class += ' rounded-none';
     }
     if (className) {
         extra_class += ` ${className}`;
@@ -183,20 +185,21 @@ export const Button = (
 Button.displayName = 'Button';
 
 Button.propTypes = {
-    primary: PropTypes.bool,
-    danger: PropTypes.bool,
-    secondary: PropTypes.bool,
+    color: PropTypes.oneOf(options.colors),
+    shape: PropTypes.oneOf(options.shape),
+    size: PropTypes.oneOf(options.size),
+    weight: PropTypes.oneOf(options.weight),
     children: PropTypes.node.isRequired,
-    rounded: PropTypes.bool,
+
     disabled: PropTypes.bool,
     block: PropTypes.bool,
-    success: PropTypes.bool,
+
     link: PropTypes.bool,
     upperCase: PropTypes.bool,
     micro: PropTypes.bool,
     className: PropTypes.string,
     tooltip: PropTypes.string,
-    warning: PropTypes.bool,
+
     border: PropTypes.bool,
     small: PropTypes.bool,
     large: PropTypes.bool,
