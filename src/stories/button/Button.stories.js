@@ -88,3 +88,15 @@ Disabled.storyName = 'State: Disabled';
 Disabled.args = {
     state: 'disabled',
 };
+
+export const Uppercase = Template.bind({});
+Uppercase.storyName = 'State: Uppercase';
+Uppercase.args = {
+    state: 'uppercase',
+};
+
+// export const Hover = Template.bind({});
+// Hover.storyName = 'State: Hover';
+// Hover.args = {
+//     state: 'Hover',
+// };

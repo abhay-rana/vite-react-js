@@ -7,8 +7,6 @@ import { Spinner } from '~/stories/spinner';
 
 export const Button = (
     {
-        upperCase,
-
         text,
         loader,
         link,
@@ -19,7 +17,6 @@ export const Button = (
 
         block,
         children = 'default children',
-
         className,
         color = 'primary',
         shape = 'pill',
@@ -31,7 +28,7 @@ export const Button = (
     const isDisabled = loader ? true : state === 'disabled' ? true : false;
     let extra_class =
         'round-none flex items-center justify-center relative focus:outline-none rounded-lg';
-    if (!!upperCase) {
+    if (state === 'uppercase') {
         extra_class += ' uppercase';
     }
     if (size === 'xs') {
@@ -194,7 +191,7 @@ Button.propTypes = {
     block: PropTypes.bool,
 
     link: PropTypes.bool,
-    upperCase: PropTypes.bool,
+
     micro: PropTypes.bool,
     className: PropTypes.string,
     tooltip: PropTypes.string,
