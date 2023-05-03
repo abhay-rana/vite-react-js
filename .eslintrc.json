@@ -15,7 +15,8 @@
     },
     "rules": {
         "no-unused-vars": "warn",
-        "react/react-in-jsx-scope": "off"
+        "react/react-in-jsx-scope": "off",
+        "no-extra-boolean-cast": "off"
     },
     "parserOptions": {
         "sourceType": "module",
