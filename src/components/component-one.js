@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import ReactLogoSvg from '~/assets/react.svg';
+import ReactLogoSvg from '~/assets/svg/react.svg';
 
 import ScreenOne from '~/screens/screen-one';
 

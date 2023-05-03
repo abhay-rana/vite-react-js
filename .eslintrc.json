@@ -15,12 +15,19 @@
     },
     "rules": {
         "no-unused-vars": "warn",
-        "import/no-unresolved": "off",
         "react/react-in-jsx-scope": "off",
         "no-extra-boolean-cast": "off"
     },
     "parserOptions": {
         "sourceType": "module",
         "requireConfigFile": false // <== ADD THIS
+    },
+    "settings": {
+        "react": {
+            "version": "detect"
+        },
+        "import/resolver": {
+            "alias": [["~", "./src"]]
+        }
     }
 }
