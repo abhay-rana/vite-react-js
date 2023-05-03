@@ -14,8 +14,9 @@ export const Button = (
         tooltip,
         onClick,
         border,
-
+        uppercase,
         block,
+        disabled,
         children = 'default children',
         className,
         color = 'primary',
@@ -25,10 +26,10 @@ export const Button = (
     },
     ref
 ) => {
-    const isDisabled = loader ? true : state === 'disabled' ? true : false;
+    const isDisabled = loader ? true : disabled ? true : false;
     let extra_class =
         'round-none flex items-center justify-center relative focus:outline-none rounded-lg';
-    if (state === 'uppercase') {
+    if (!!uppercase) {
         extra_class += ' uppercase';
     }
     if (size === 'xs') {
@@ -104,7 +105,7 @@ export const Button = (
     } else {
         extra_class += ' block';
     }
-    if (state === 'disabled') {
+    if (isDisabled) {
         extra_class += ' opacity-50 cursor-not-allowed';
     }
     if (shape === 'pill') {
@@ -187,9 +188,10 @@ Button.propTypes = {
     weight: PropTypes.oneOf(options.weight),
     state: PropTypes.oneOf(options.state),
     children: PropTypes.node.isRequired,
-
+    uppercase: PropTypes.bool,
     block: PropTypes.bool,
-
+    disabled: PropTypes.disabled,
+    loader: PropTypes.bool,
     link: PropTypes.bool,
 
     micro: PropTypes.bool,
@@ -201,7 +203,7 @@ Button.propTypes = {
     large: PropTypes.bool,
     text: PropTypes.string,
     onClick: PropTypes.func,
-    loader: PropTypes.bool,
+
     style: PropTypes.object,
     ref: PropTypes.node,
 };

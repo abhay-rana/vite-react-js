@@ -83,20 +83,22 @@ Large.storyName = 'Size: Large';
 Large.args = {
     size: 'lg',
 };
+
 export const Disabled = Template.bind({});
-Disabled.storyName = 'State: Disabled';
+Disabled.storyName = 'Disabled';
 Disabled.args = {
-    state: 'disabled',
+    disabled: true,
 };
 
 export const Uppercase = Template.bind({});
-Uppercase.storyName = 'State: Uppercase';
+Uppercase.storyName = 'Uppercase';
 Uppercase.args = {
-    state: 'uppercase',
+    uppercase: true,
 };
-
-// export const Hover = Template.bind({});
-// Hover.storyName = 'State: Hover';
-// Hover.args = {
-//     state: 'Hover',
-// };
+export const Hover = Template.bind({});
+Hover.storyName = 'Hover';
+export const Loading = Template.bind({});
+Loading.storyName = 'Loading';
+Loading.args = {
+    loader: true,
+};

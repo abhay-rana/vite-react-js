@@ -39,17 +39,17 @@ module.exports = {
             },
         },
     },
-    safelist: [
-        // https://tailwindcss.com/docs/content-configuration#safelisting-classes
-        // https://github.com/tailwindlabs/tailwindcss/discussions/10079
-        // safelist pattern only for the storybook dynamic changing from the website
-        // for dynamic  styling it is best to use the style prop of css
-        {
-            pattern: /(bg|border|text)-[^/]+$/,
-            variants: ['dark', 'hover', 'focus', 'dark:hover', 'dark:focus'],
-        },
-        { pattern: /^from/ },
-        { pattern: /^to/ },
-    ],
+    // safelist: [
+    //     // https://tailwindcss.com/docs/content-configuration#safelisting-classes
+    //     // https://github.com/tailwindlabs/tailwindcss/discussions/10079
+    //     // safelist pattern only for the storybook dynamic changing from the website
+    //     // for dynamic  styling it is best to use the style prop of css
+    //     {
+    //         pattern: /(bg|border|text)-[^/]+$/,
+    //         variants: ['dark', 'hover', 'focus', 'dark:hover', 'dark:focus'],
+    //     },
+    //     { pattern: /^from/ },
+    //     { pattern: /^to/ },
+    // ],
     plugins: [],
 };
