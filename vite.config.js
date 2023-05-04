@@ -21,6 +21,8 @@ export default defineConfig(() => ({
         port: 3000,
         // open the browser automatically
         open: true,
+        // host the url to the outer network like run in mobile
+        host: true,
     },
     esbuild: {
         loader: 'jsx',
