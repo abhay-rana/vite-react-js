@@ -11,7 +11,8 @@
         "lint": "eslint .",
         "dev": "vite",
         "build": "vite build",
-        "preview": "vite preview"
+        "preview": "vite preview",
+        "format": "npx prettier --write ."
     },
     "dependencies": {
         "@redux-offline/redux-offline": "^2.6.0",
