@@ -3,8 +3,7 @@ import { forwardRef, memo } from 'react';
 import { twMerge } from 'tailwind-merge';
 
 import { options } from '~/components/button/constant';
-
-import { Spinner } from '~/stories/spinner';
+import Spinner from '~/components/spinner/spinner';
 
 export const Button = (
     {
