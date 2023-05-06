@@ -11,7 +11,9 @@
         "lint": "eslint .",
         "dev": "vite",
         "build": "vite build",
-        "preview": "vite preview",
+         "preview": "vite preview",
+        "format": "npx prettier --write .",
+        "clean": "rm -rf node_modules yarn.lock && yarn cache clean",
         "storybook": "storybook dev -p 6006",
         "build-storybook": "storybook build"
     },
