@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 
-import { Button } from '~/stories/button/button';
+import { Button } from '~/components/button/button';
 
 export default {
     title: 'form/Button',

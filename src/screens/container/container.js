@@ -9,10 +9,10 @@ import Sidebar from '~/screens/container/sidebar';
 const Container = ({ children }) => {
     return (
         <ErrorBoundary>
-            <Header />
-            <Sidebar />
+            {/* <Header /> */}
+            {/* <Sidebar /> */}
             {children}
-            <Footer />
+            {/* <Footer /> */}
         </ErrorBoundary>
     );
 };

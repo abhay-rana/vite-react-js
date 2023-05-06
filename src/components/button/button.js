@@ -2,7 +2,8 @@ import PropTypes from 'prop-types';
 import { forwardRef, memo } from 'react';
 import { twMerge } from 'tailwind-merge';
 
-import { options } from '~/stories/button/constant';
+import { options } from '~/components/button/constant';
+
 import { Spinner } from '~/stories/spinner';
 
 export const Button = (
