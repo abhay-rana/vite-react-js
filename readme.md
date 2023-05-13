@@ -7,17 +7,24 @@ https://github.com/shuding/tilg
 
 hold alt button in windows and option button in mac
 
-add the prettier sort imports
-add the prettier for code formating
-add the eslint for code linting
-add the prop-types for props validations
-add the .npmrc
-add the absolute imports
-add the svg support
-add the tailwind
-add the porject as a vite project (done)
+-add the prettier sort imports (prettier tailwind sort imports)
+-add the prettier for code formating
+-add the eslint for code linting (added the imports error)
+-add the prop-types for props validations()
+-add the .npmrc (force use of yarn)
+-add the absolute imports (import are absolute to the src folder ~)
+-add the svg support (import svg as a component)
+-add the tailwind with its configurations
 
 ## add the react-render-tracker
 
 install the rempl browser extension for using this
 https://github.com/lahmatiy/react-render-tracker
+
+## add the redux installed with the thunk and devtools
+
+## add the routing library (wouter)
+
+    - add the error boundary
+    - add the alertify(react-hot-toast)
+    - add the 404 screen
