@@ -5,7 +5,7 @@ import React, { memo } from 'react';
 const AboutScreen = () => {
     return (
         <>
-            <div className="">AboutScreen</div>
+            <div className="bg-primary">AboutScreen</div>
             {/* <CompOne /> */}
         </>
     );
