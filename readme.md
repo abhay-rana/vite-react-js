@@ -1,6 +1,9 @@
 ## command for using this repostiory as a tempalate
 npx degit abhay-rana/vite-react-js#[branch-name] [YourCustomProjectName]
 
+eg: npx degit abhay-rana/vite-react-js#master KiteSurfix
+    npx degit abhay-rana/vite-react-js#components-bit DappReact
+
 ## add the useTilg hook support for the rendering analysis
 
 this tilg hook is for the dev mode to see the rendering of the component dont use it on the production build
