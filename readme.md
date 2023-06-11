@@ -1,5 +1,5 @@
 ## command for using this repostiory as a tempalate
-npx degit abhay-rana/vite-react-js#<branch-name> <YourCustomProjectName>
+npx degit abhay-rana/vite-react-js#[branch-name] [YourCustomProjectName]
 
 ## add the useTilg hook support for the rendering analysis
 
