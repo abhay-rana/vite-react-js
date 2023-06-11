@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom/client';
 import { Toaster } from 'react-hot-toast';
 import { Provider } from 'react-redux';
 
-import store from '~/reducers';
+import store from '~/reducers/store';
 
 //for tailwind
 import App from './app';
