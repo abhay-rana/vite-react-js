@@ -3,6 +3,7 @@ import fs from 'fs/promises';
 import path from 'path';
 import { defineConfig } from 'vite';
 import eslint from 'vite-plugin-eslint';
+import removeConsole from 'vite-plugin-remove-console';
 import svgr from 'vite-plugin-svgr';
 
 // https://vitejs.dev/config/
@@ -15,6 +16,7 @@ export default defineConfig(() => ({
             exportAsDefault: true,
         }),
         eslint(),
+        removeConsole(),
     ],
     server: {
         // open at the port
