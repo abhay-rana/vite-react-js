@@ -23,10 +23,12 @@ const HomeScreen = (props) => {
                         Go To Contact
                     </button>
                 </div>
-                <div className="">Counter Applications</div>
-                <button onClick={() => props.Increment_Counter()}>+</button>
-                {props.counter}
-                <button onClick={() => props.Decrement_Counter()}>-</button>
+                <div>
+                    <div className="">Counter Applications</div>
+                    <button onClick={() => props.Increment_Counter()}>+</button>
+                    {props.counter}
+                    <button onClick={() => props.Decrement_Counter()}>-</button>
+                </div>
                 <div className="flex flex-col border-1 border-red-500">
                     <div className="text-center">Toast renderings</div>
                     <div className="flex flex-row gap-4">
