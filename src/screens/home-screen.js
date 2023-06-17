@@ -11,7 +11,7 @@ const HomeScreen = (props) => {
     return (
         <>
             <div className="flex flex-col border-2 border-black">
-                This is HomeScreen
+                This is HomeScreen running on vercel
                 <div className="flex w-24 cursor-pointer flex-col gap-4">
                     <button
                         className="bg-blue-500 p-4"
