@@ -11,11 +11,11 @@ import App from './app';
 import './styles/global.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-    <React.StrictMode>
-        <Provider store={store}>
-            <App />
-            <Toaster />
-        </Provider>
+    // <React.StrictMode>
+    <Provider store={store}>
+        <App />
+        <Toaster />
         {/* <ClickToComponent /> */}
-    </React.StrictMode>
+    </Provider>
+    // </React.StrictMode>
 );
