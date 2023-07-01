@@ -20,11 +20,8 @@
         width: 100%;
     }
     /* min-height is not inherited by the child  so we have replace the min-height by the height property */
-}
-
-@layer base {
     h1 {
-        @apply text-3xl font-bold;
+        @apply text-12 font-bold;
     }
 
     a {

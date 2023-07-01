@@ -12,7 +12,6 @@ import { APP_MODE } from '~/env';
 
 const reducers = combineReducers({
     rehydration_store: RehydrationReducer,
-
     counter_store: CounterReducer,
 });
 

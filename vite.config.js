@@ -36,6 +36,9 @@ export default defineConfig(() => ({
     // this is used for using the .js extension in the vite as it only supports the .jsx extension
     optimizeDeps: {
         esbuildOptions: {
+             loader: {
+                '.js': 'jsx',
+            },
             plugins: [
                 {
                     name: 'load-js-files-as-jsx',
