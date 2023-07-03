@@ -15,7 +15,8 @@
         "format": "npx prettier --write .",
         "clean": "rm -rf node_modules yarn.lock && yarn cache clean",
         "storybook": "storybook dev -p 6006",
-        "build-storybook": "storybook build"
+        "build-storybook": "storybook build",
+        "vercel": "vercel --prod"
     },
     "dependencies": {
         "@redux-offline/redux-offline": "^2.6.0",

@@ -1,17 +1,24 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { toast } from 'react-hot-toast';
 import { connect } from 'react-redux';
 import { useLocation } from 'wouter';
 
 import { DecrementCounter, IncrementCounter } from '~/actions/counter-actions';
+import { HomeGetInitialData } from '~/actions/home-actions';
 
 const HomeScreen = (props) => {
+    //* INITIAL_HOME_FETCH
+    HomeGetInitialData();
+    console.log('Hey There');
+    useEffect(() => {
+        console.log('hello this is useEffect in home screen');
+    }, []);
     const [_, setLocation] = useLocation();
     return (
         <>
             <div className="flex flex-col border-2 border-black">
-                This is HomeScreen running on vercel
+                This is HomeScreen running on vercel Yes Man..
                 <div className="flex w-24 cursor-pointer flex-col gap-4">
                     <button
                         className="bg-blue-500 p-4"

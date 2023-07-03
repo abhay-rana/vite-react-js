@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types';
 import React, { memo } from 'react';
 
-import ErrorBoundary from '~/screens/container/error-boundary';
-import Footer from '~/screens/container/footer';
-import Header from '~/screens/container/header';
-import Sidebar from '~/screens/container/sidebar';
+import ErrorBoundary from '~/components/container/error-boundary';
+import Footer from '~/components/container/footer';
+import Header from '~/components/container/header';
+import Sidebar from '~/components/container/sidebar';
 
 const Container = ({ children }) => {
     return (

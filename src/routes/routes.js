@@ -3,7 +3,7 @@ import { Route, Switch } from 'wouter';
 
 const HomeScreen = React.lazy(() => import('~/screens/home-screen'));
 const AboutScreen = React.lazy(() => import('~/screens/about-screen'));
-const ErrorScreen = React.lazy(() => import('~/screens/container/404'));
+const ErrorScreen = React.lazy(() => import('~/components/container/404'));
 const ContactScreen = React.lazy(() => import('~/screens/contact-screen'));
 
 const Routes = () => {
