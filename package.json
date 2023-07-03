@@ -9,6 +9,7 @@
     },
     "scripts": {
         "lint": "eslint .",
+        "lint:fix": "eslint --fix --ext .js,.jsx .",
         "dev": "vite",
         "build": "vite build",
         "preview": "vite preview",
