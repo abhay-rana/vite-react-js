@@ -1,9 +1,7 @@
-import { offline } from '@redux-offline/redux-offline';
-import offlineConfig from '@redux-offline/redux-offline/lib/defaults';
 import { applyMiddleware, combineReducers, compose, createStore } from 'redux';
+import { persistReducer, persistStore } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
 import thunk from 'redux-thunk';
-
-import { REHYDRATION_SET_REHYDRATION_VALUE } from '~/actions/types';
 
 import { CounterReducer } from '~/reducers/counter-reducer';
 import { RehydrationReducer } from '~/reducers/rehydration-reducer';
@@ -15,24 +13,24 @@ const reducers = combineReducers({
     counter_store: CounterReducer,
 });
 
-let custom_config = {
-    ...offlineConfig,
-    persistOptions: {
-        key: 'root',
-        // whitelist: []
-        blacklist: ['rehydration_store', 'another_store'],
-    },
-    persistCallback: () => {
-        // setting is_rehydration value so that our screen renders when rehydration completes
-        store.dispatch({ type: REHYDRATION_SET_REHYDRATION_VALUE });
-    },
+const persistConfig = {
+    key: 'root',
+    blacklist: ['rehydration_store'],
+    storage,
 };
+
+const persist_reducer = persistReducer(persistConfig, reducers);
 
 // const sentryReduxEnhancer = SentryLogger.createReduxEnhancer({
 //     // Optionally pass options listed below
 // });
 
 let composeEnhancers;
+
+const middlewares = [
+    thunk,
+    // sentryReduxEnhancer,
+];
 
 if (APP_MODE === 'development') {
     composeEnhancers =
@@ -45,14 +43,8 @@ if (APP_MODE === 'development') {
             : compose;
 } else composeEnhancers = compose;
 
-const middlewares = [
-    applyMiddleware(thunk),
-    offline(custom_config),
-    // sentryReduxEnhancer,
-];
-
-const enhancer = composeEnhancers(...middlewares);
-
-const store = createStore(reducers, enhancer);
+const enhancer = composeEnhancers(applyMiddleware(...middlewares));
+export const store = createStore(persist_reducer, enhancer);
+export const persistor = persistStore(store);
 
 export default store;
