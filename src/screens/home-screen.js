@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { toast } from 'react-hot-toast';
 import { connect } from 'react-redux';
 import { useLocation } from 'wouter';
@@ -10,7 +10,7 @@ import { HomeGetInitialData } from '~/actions/home-actions';
 const HomeScreen = (props) => {
     //* INITIAL_HOME_FETCH
     HomeGetInitialData();
-    console.log('Hey There');
+    console.log('re-renderd stops');
     useEffect(() => {
         console.log('hello this is useEffect in home screen');
     }, []);
@@ -32,9 +32,19 @@ const HomeScreen = (props) => {
                 </div>
                 <div>
                     <div className="">Counter Applications</div>
-                    <button onClick={() => props.Increment_Counter()}>+</button>
+                    <button
+                        onClick={() => props.Increment_Counter()}
+                        className="rounded-lg bg-red-400 p-2"
+                    >
+                        +
+                    </button>
                     {props.counter}
-                    <button onClick={() => props.Decrement_Counter()}>-</button>
+                    <button
+                        onClick={() => props.Decrement_Counter()}
+                        className="rounded-lg bg-green-400 p-2"
+                    >
+                        -
+                    </button>
                 </div>
                 <div className="flex flex-col border-1 border-red-500">
                     <div className="text-center">Toast renderings</div>
@@ -62,7 +72,11 @@ const mapDispatchToProps = (dispatch) => ({
     Decrement_Counter: () => dispatch(DecrementCounter()),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(HomeScreen);
+export default connect(mapStateToProps, mapDispatchToProps, null, {
+    areStatesEqual: (next, prev) => {
+        return prev.counter_store.counter === next.counter_store.counter;
+    },
+})(HomeScreen);
 
 HomeScreen.propTypes = {
     Increment_Counter: PropTypes.func,

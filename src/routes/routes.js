@@ -17,7 +17,6 @@ const Routes = () => {
                 <Route path="/debounce" component={DebounceScreen} />
                 <Route path="/about" component={AboutScreen} />
                 <Route path="/contact" component={ContactScreen} />
-
                 {/* if none of the route is matched */}
                 <Route component={ErrorScreen} />
             </React.Suspense>

@@ -6,10 +6,10 @@ const DebounceScreen = (props) => {
     return (
         <>
             <div>DebounceScreen</div>
-            <input
+            {/* <input
                 value={props.search}
                 onChange={(e) => props.Set_Search('search', e.target.value)}
-            />
+            /> */}
         </>
     );
 };
