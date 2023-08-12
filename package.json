@@ -18,7 +18,14 @@
         "storybook": "storybook dev -p 6006",
         "build-storybook": "storybook build",
         "vercel": "vercel --prod",
-        "depcheck": "npx npm-check"
+        "depcheck": "npx npm-check",
+        "prepare": "husky install"
+    },
+    "lint-staged": {
+        "**/*.{js,jsx,ts,tsx}": [
+            "yarn lint:fix",
+            "yarn format"
+        ]
     },
     "dependencies": {
         "click-to-react-component": "^1.0.8",
@@ -44,7 +51,6 @@
         "@storybook/blocks": "7.0.7",
         "@storybook/react": "7.0.7",
         "@storybook/react-vite": "7.0.7",
-        "eslint-plugin-unused-imports": "^3.0.0",
         "@storybook/testing-library": "0.0.14-next.2",
         "@trivago/prettier-plugin-sort-imports": "^4.1.1",
         "@types/react": "^18.0.28",
@@ -60,6 +66,9 @@
         "eslint-plugin-react": "^7.32.2",
         "eslint-plugin-react-hooks": "^4.6.0",
         "eslint-plugin-storybook": "^0.6.11",
+        "eslint-plugin-unused-imports": "^3.0.0",
+        "husky": "^8.0.3",
+        "lint-staged": "^13.2.3",
         "postcss": "^8.4.22",
         "prettier": "^2.8.7",
         "prettier-plugin-tailwindcss": "^0.2.7",
