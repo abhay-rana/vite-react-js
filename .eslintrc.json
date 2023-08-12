@@ -14,10 +14,22 @@
         "es6": true
     },
     "rules": {
-        "no-unused-vars": "warn",
         "react/react-in-jsx-scope": "off",
-        "no-extra-boolean-cast": "off"
+        "no-extra-boolean-cast": "off",
+        "no-unused-vars": "warn",
+        "unused-imports/no-unused-imports": "warn",
+        "unused-imports/no-unused-vars": [
+            "warn",
+            {
+                "vars": "all",
+                "varsIgnorePattern": "^_",
+                "args": "after-used",
+                "argsIgnorePattern": "^_"
+            }
+        ]
     },
+    "plugins": ["react", "unused-imports"],
+
     "parserOptions": {
         "sourceType": "module",
         "requireConfigFile": false // <== ADD THIS
