@@ -14,6 +14,17 @@
         "es6": true
     },
     "rules": {
+        "no-await-in-loop": "error",
+        "no-constant-binary-expression": "error",
+        "no-duplicate-imports": "error",
+        "no-new-native-nonconstructor": "error",
+        "no-promise-executor-return": "error",
+        "no-self-compare": "error",
+        "no-template-curly-in-string": "error",
+        "no-unmodified-loop-condition": "error",
+        "no-unreachable-loop": "error",
+        "no-unused-private-class-members": "error",
+        "no-use-before-define": "error",
         "react/react-in-jsx-scope": "off",
         "no-extra-boolean-cast": "off",
         "no-unused-vars": "warn",
@@ -26,9 +37,38 @@
                 "args": "after-used",
                 "argsIgnorePattern": "^_"
             }
+        ],
+        "unicorn/filename-case": [
+            "error",
+            {
+                "cases": {
+                    "kebabCase": true,
+                    "camelCase": true
+                }
+            }
+        ],
+        "unicorn/prevent-abbreviations": [
+            "error",
+            {
+                "replacements": {
+                    "e": {
+                        "event": false
+                    },
+                    "res": false,
+                    "cmd": {
+                        "command": true
+                    },
+                    "errCb": {
+                        "handleError": true
+                    },
+                    "i": {
+                        "item": true
+                    }
+                }
+            }
         ]
     },
-    "plugins": ["react", "unused-imports"],
+    "plugins": ["react", "unused-imports", "unicorn"],
 
     "parserOptions": {
         "sourceType": "module",
