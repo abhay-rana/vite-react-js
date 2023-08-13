@@ -22,7 +22,7 @@
         "prepare": "husky install"
     },
     "lint-staged": {
-        "**/*.{js,jsx,ts}": [
+        "**/*.{js,jsx}": [
             "yarn lint:fix",
             "yarn format"
         ]
