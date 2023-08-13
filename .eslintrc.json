@@ -27,7 +27,15 @@
         "no-use-before-define": "error",
         "react/react-in-jsx-scope": "off",
         "no-extra-boolean-cast": "off",
-        "no-unused-vars": "warn",
+        "no-unused-vars": [
+            "warn",
+            {
+                "vars": "all",
+                "varsIgnorePattern": "^_",
+                "args": "after-used",
+                "argsIgnorePattern": "action|getState"
+            }
+        ],
         "unused-imports/no-unused-imports": "warn",
         "unused-imports/no-unused-vars": [
             "warn",
@@ -35,7 +43,7 @@
                 "vars": "all",
                 "varsIgnorePattern": "^_",
                 "args": "after-used",
-                "argsIgnorePattern": "^_"
+                "argsIgnorePattern": "action|getState"
             }
         ],
         "unicorn/filename-case": [
@@ -44,7 +52,8 @@
                 "cases": {
                     "kebabCase": true,
                     "camelCase": true
-                }
+                },
+                "ignore": ["\\.stories\\.js$"]
             }
         ],
         "unicorn/prevent-abbreviations": [

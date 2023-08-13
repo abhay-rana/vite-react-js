@@ -12,11 +12,11 @@ export default {
     },
 };
 
-const Template = (args) => {
-    const ref = useRef();
+const Template = (arguments_) => {
+    const reference = useRef();
     return (
-        <Button {...args} ref={ref}>
-            {args.children}
+        <Button {...arguments_} ref={reference}>
+            {arguments_.children}
         </Button>
     );
 };
