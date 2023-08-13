@@ -4,8 +4,9 @@ import { toast } from 'react-hot-toast';
 import { connect } from 'react-redux';
 import { useLocation } from 'wouter';
 
-import { DecrementCounter, IncrementCounter } from '~/actions/counter-actions';
 import { HomeGetInitialData } from '~/actions/home-actions';
+
+import { AddTodo, DeleteTodo } from '~/reducers/counter-reducer';
 
 const HomeScreen = (props) => {
     //* INITIAL_HOME_FETCH
@@ -68,13 +69,13 @@ const mapStateToProps = (state) => ({
     counter: state.counter_store.counter,
 });
 const mapDispatchToProps = (dispatch) => ({
-    Increment_Counter: () => dispatch(IncrementCounter()),
-    Decrement_Counter: () => dispatch(DecrementCounter()),
+    Increment_Counter: () => dispatch(AddTodo()),
+    Decrement_Counter: () => dispatch(DeleteTodo()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps, null, {
-    areStatesEqual: (next, prev) => {
-        return prev.counter_store.counter === next.counter_store.counter;
+    areStatesEqual: (next, previous) => {
+        return previous.counter_store.counter === next.counter_store.counter;
     },
 })(HomeScreen);
 

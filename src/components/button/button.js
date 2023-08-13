@@ -24,7 +24,7 @@ export const Button = (
         size = 'md',
         state = 'normal',
     },
-    ref
+    reference
 ) => {
     const isDisabled = loader ? true : disabled ? true : false;
     let extra_class =
