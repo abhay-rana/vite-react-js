@@ -28,6 +28,7 @@
         ]
     },
     "dependencies": {
+        "@reduxjs/toolkit": "^1.9.5",
         "click-to-react-component": "^1.0.8",
         "lodash.debounce": "^4.0.8",
         "lodash.throttle": "^4.1.1",

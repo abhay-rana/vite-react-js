@@ -63,7 +63,9 @@
                     },
                     "i": {
                         "item": true
-                    }
+                    },
+                    "props": false,
+                    "env": false
                 }
             }
         ]

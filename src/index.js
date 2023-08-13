@@ -1,11 +1,11 @@
 import ReactDOM from 'react-dom/client';
 import { Toaster } from 'react-hot-toast';
 import { Provider } from 'react-redux';
+//for tailwind
 import { PersistGate } from 'redux-persist/integration/react';
 
 import store, { persistor } from '~/reducers/store';
 
-//for tailwind
 import App from './app';
 import './styles/global.css';
 

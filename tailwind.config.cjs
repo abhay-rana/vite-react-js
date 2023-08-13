@@ -1,5 +1,5 @@
 /** @type {import('tailwindcss').Config} */
-const colors = require('./src/styles/theme-var.js');
+const colors = require('./src/styles/theme-variable.js');
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
