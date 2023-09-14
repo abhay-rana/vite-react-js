@@ -16,6 +16,16 @@ const HomeScreen = (props) => {
         console.log('hello this is useEffect in home screen');
     }, []);
     const [_, setLocation] = useLocation();
+    /**
+     * @description function will take 2 numbers arguments and sum them
+     * @param {number} a
+     * @param {number} b
+     * @returns {void}
+     */
+    function addAbhay(a, b) {
+        const c = a + b;
+        // return;
+    }
     return (
         <>
             <div className="flex flex-col border-2 border-black">
@@ -47,6 +57,7 @@ const HomeScreen = (props) => {
                         -
                     </button>
                 </div>
+                <button onClick={() => addAbhay(10, 20, {})}>Sum</button>
                 <div className="flex flex-col border-1 border-red-500">
                     <div className="text-center">Toast renderings</div>
                     <div className="flex flex-row gap-4">
