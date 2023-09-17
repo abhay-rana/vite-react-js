@@ -63,15 +63,9 @@ export const postApi = async (
     return result;
 };
 
-export const getApi = async (
-    path,
-    data = {},
-    headers = { Accept: 'application/json' }
-) => {
+export const getApi = async (path, data = {}) => {
     var result = await new Promise((resolve, reject) => {
-        api.get(path, data, {
-            headers: headers,
-        })
+        api.get(path, data)
             .then((response) => resolve(response.data))
             .catch((error) => {
                 // if (error.response.status === 401) {

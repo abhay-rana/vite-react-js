@@ -81,7 +81,6 @@
         ]
     },
     "plugins": ["react", "unused-imports", "unicorn"],
-
     "parserOptions": {
         "sourceType": "module",
         "requireConfigFile": false // <== ADD THIS

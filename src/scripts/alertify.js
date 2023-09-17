@@ -1,24 +1,22 @@
 import { toast } from 'react-hot-toast';
 
 const Alertify = {
-    success: (alert_text) => {
+    success: (alert_text, position = 'bottom-right') => {
         toast.dismiss();
-        toast.show({
-            text: alert_text,
-            showAction: false,
-            backgroundColor: '#5cb85c',
-            textColor: '#fff',
-            customClass: 'text-base text-center',
+        toast.success(alert_text, {
+            position,
+            style: {
+                margin: '50px',
+            },
         });
     },
-    error: (alert_text) => {
+    error: (alert_text, position = 'bottom-right') => {
         toast.dismiss();
-        toast.show({
-            text: alert_text,
-            showAction: false,
-            backgroundColor: '#ff0000',
-            textColor: '#fff',
-            customClass: 'text-base text-center',
+        toast.error(alert_text, {
+            position,
+            style: {
+                margin: '50px',
+            },
         });
     },
     default: (alert_text, action_text, action_callback) => {

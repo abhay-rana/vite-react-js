@@ -79,8 +79,6 @@ const CounterReducer = createSlice({
     },
 });
 
-const { actions, reducer } = CounterReducer;
+export const { AddTodo, DeleteTodo } = CounterReducer.actions;
 
-export const { AddTodo, DeleteTodo } = actions;
-
-export default reducer;
+export default CounterReducer.reducer;
