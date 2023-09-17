@@ -18,6 +18,8 @@ const api = axios.create({
 //! 404 Not Found    -> endpoint does not exist
 //! 500 Internal Server Error  -> error from the server side
 
+// hello
+
 api.interceptors.request.use(
     async (config) => {
         let token = store.getState().auth_store.token;
