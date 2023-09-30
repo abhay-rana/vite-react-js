@@ -10,7 +10,7 @@ import { APP_MODE } from '~/env';
 const persistConfig = {
     key: 'root',
     storage,
-    blacklist: ['store_name'],
+    blacklist: ['counter_store'],
 };
 
 const reducers = combineReducers({

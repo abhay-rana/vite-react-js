@@ -1,0 +1,30 @@
+/* .text-area-container {
+    display: flex;
+}
+
+.line-numbers {
+    width: 30px; 
+    padding: 10px;
+    background-color: #f0f0f0;
+    border-right: 1px solid #ccc;
+    text-align: right;
+} */
+/* 
+.text-area {
+    flex: 1;
+    border: none;
+    padding: 10px;
+    resize: none;
+    outline: none;
+    font-family: monospace;
+}
+
+.line {
+    display: flex;
+}
+
+.line-number {
+    min-width: 20px;
+    padding-right: 10px;
+    color: #888;
+} */

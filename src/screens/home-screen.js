@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { toast } from 'react-hot-toast';
 import { connect } from 'react-redux';
 import { useLocation } from 'wouter';
@@ -7,15 +7,13 @@ import { useLocation } from 'wouter';
 import { HomeGetInitialData } from '~/actions/home-actions';
 
 import { AddTodo, DeleteTodo } from '~/reducers/counter-reducer';
+import store from '~/reducers/store';
 
 const HomeScreen = (props) => {
-    //* INITIAL_HOME_FETCH
-    HomeGetInitialData();
-    console.log('re-renderd stops');
-    useEffect(() => {
-        console.log('hello this is useEffect in home screen');
-    }, []);
+    console.log('runs first');
+    const [count, setCount] = useState(0);
     const [_, setLocation] = useLocation();
+
     /**
      * @description function will take 2 numbers arguments and sum them
      * @param {number} a
@@ -26,6 +24,20 @@ const HomeScreen = (props) => {
         const c = a + b;
         // return;
     }
+
+    if (count === 0) {
+        props.Increment_Counter();
+        setCount(1);
+        console.log('increase the count', count);
+        console.log(
+            'increase the counter',
+            store.getState().counter_store.counter
+        );
+    }
+
+    console.log('counter', props.counter);
+    console.log('count', count);
+
     return (
         <>
             <div className="flex flex-col border-2 border-black">

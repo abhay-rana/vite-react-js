@@ -53,7 +53,7 @@ const LineNumbersTextarea = React.forwardRef(
 
         return (
             <div className="flex gap-10 rounded-md bg-gray-900 p-5">
-                <div className="mr-2 flex h-[500px] flex-col items-end text-white">
+                <div className="mr-2 flex h-[350px] flex-col items-end text-white">
                     {renderLineNumbers()}
                 </div>
                 <textarea

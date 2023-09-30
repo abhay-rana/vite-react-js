@@ -1,8 +1,9 @@
 import { useRef, useState } from 'react';
 
+import Button from '~/components/button/button';
 import TextAreaWithLineNumbers from '~/components/textarea-lines';
 
-function _keepAddress(address_amount) {
+function _keepFirstAddress(address_amount) {
     const uniqueAddresses = {};
     const resultArray = [];
 
@@ -84,7 +85,10 @@ function _checkValidAmount(array) {
         error_arr: [],
         duplicated_error: false,
     };
-    const isNumeric = (string_) => !isNaN(Number(string_));
+    const isNumeric = (string_) => {
+        // Check if the string is not empty and contains only numeric characters or spaces
+        return /^[0-9\s]+$/.test(string_);
+    };
 
     const indexesOfNonNumericAmounts = array
         .map((item, index) => (isNumeric(item.split(' ')[1]) ? -1 : index))
@@ -107,12 +111,9 @@ function _checkValidations(array) {
     };
     error_valid_amount = _checkValidAmount(array);
     if (error_valid_amount.error_arr.length > 0) return error_valid_amount;
-    else {
-        error_valid_amount = _checkDuplicatesIndex(array);
-        if (error_valid_amount.error_arr.length > 0) {
-            return error_valid_amount;
-        }
-    }
+
+    error_valid_amount = _checkDuplicatesIndex(array);
+    return error_valid_amount;
 }
 
 const Dispense = () => {
@@ -123,6 +124,7 @@ const Dispense = () => {
         error_arr: [],
         duplicated_error: false,
         addressIndexes: {},
+        success: false,
     });
 
     function onSubmit() {
@@ -131,13 +133,16 @@ const Dispense = () => {
         console.log(address_array);
         setAddressAmount(address_array);
         const validation_data = _checkValidations(address_array);
-        setError(validation_data);
+        if (validation_data.error_arr.length > 0) {
+            return setError(validation_data);
+        }
+        setError({ ...validation_data, success: true });
         console.log(validation_data);
     }
 
     function removeDuplicates(type) {
         if (type === 'keep') {
-            const new_address = _keepAddress(address_amount);
+            const new_address = _keepFirstAddress(address_amount);
             setAddress(new_address);
         } else if (type === 'combine') {
             const new_address = _combineAddress(address_amount);
@@ -152,7 +157,7 @@ const Dispense = () => {
 
     return (
         <>
-            <div>
+            <div className="flex flex-col gap-5">
                 <TextAreaWithLineNumbers
                     onChange={setAddress}
                     value={address}
@@ -160,22 +165,39 @@ const Dispense = () => {
                 />
                 {error.duplicated_error && (
                     <>
-                        <div className="flex flex-row text-danger">
-                            <p onClick={() => removeDuplicates('keep')}>
-                                Keep the first One{' '}
-                            </p>
-                            <p onClick={() => removeDuplicates('combine')}>
-                                Combine balance
-                            </p>
+                        <div className="flex flex-row justify-between text-danger">
+                            <p>Duplicated</p>
+                            <div className="flex cursor-pointer flex-row gap-1">
+                                <p onClick={() => removeDuplicates('keep')}>
+                                    Keep the first One
+                                </p>
+                                <p>{'|'}</p>
+                                <p onClick={() => removeDuplicates('combine')}>
+                                    Combine balance
+                                </p>
+                            </div>
                         </div>
                     </>
                 )}
-                {error.error_arr.map((error_string, index) => (
-                    <p key={index} className="text-danger">
-                        {error_string}
-                    </p>
-                ))}
-                <button onClick={onSubmit}>Submit</button>
+                {error.error_arr.length > 0 ? (
+                    <div className="border-2 border-danger p-3">
+                        {error.error_arr.map((error_string, index) => (
+                            <p key={index} className="text-danger">
+                                {error_string}
+                            </p>
+                        ))}
+                    </div>
+                ) : null}
+                {error.success ? (
+                    <div className="border-2 border-success p-3 font-bold">
+                        <p className="text-16 text-success">
+                            Validations Passed
+                        </p>
+                    </div>
+                ) : null}
+                <Button onClick={onSubmit} block className={'h-14'}>
+                    Submit
+                </Button>
             </div>
         </>
     );
