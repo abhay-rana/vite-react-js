@@ -28,6 +28,7 @@ const store = configureStore({
             immutableCheck: false,
         }),
 });
+
 export const persistor = persistStore(store);
 
 export default store;

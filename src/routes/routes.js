@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch } from 'wouter';
+import { Route, Router, Switch } from 'wouter';
 
 import DebounceScreen from '~/screens/debounce-screen';
 
@@ -10,17 +10,19 @@ const ContactScreen = React.lazy(() => import('~/screens/contact-screen'));
 
 const Routes = () => {
     return (
-        <Switch>
+        <Router>
             <React.Suspense fallback={<h1>Loading....</h1>}>
-                <Route path="/" component={HomeScreen} />
-                <Route path="/components" component={HomeScreen} />
-                <Route path="/debounce" component={DebounceScreen} />
-                <Route path="/about" component={AboutScreen} />
-                <Route path="/contact" component={ContactScreen} />
-                {/* if none of the route is matched */}
-                <Route component={ErrorScreen} />
+                <Switch>
+                    <Route exact path="/" component={HomeScreen} />
+                    <Route path="/components" component={HomeScreen} />
+                    <Route path="/debounce" component={DebounceScreen} />
+                    <Route path="/about" component={AboutScreen} />
+                    <Route path="/contact" component={ContactScreen} />
+                    {/* if none of the route is matched */}
+                    <Route component={ErrorScreen} />
+                </Switch>
             </React.Suspense>
-        </Switch>
+        </Router>
     );
 };
 
