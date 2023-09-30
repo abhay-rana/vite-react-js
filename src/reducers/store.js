@@ -2,7 +2,8 @@ import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { persistReducer, persistStore } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
-import CounterReducer from '~/reducers/counter-reducer';
+import containerReducer from '~/reducers/container-reducer';
+import counterReducer from '~/reducers/counter-reducer';
 
 import { APP_MODE } from '~/env';
 
@@ -13,7 +14,8 @@ const persistConfig = {
 };
 
 const reducers = combineReducers({
-    counter_store: CounterReducer,
+    counter_store: counterReducer,
+    container_store: containerReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, reducers);

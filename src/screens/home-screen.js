@@ -4,13 +4,11 @@ import { toast } from 'react-hot-toast';
 import { connect } from 'react-redux';
 import { useLocation } from 'wouter';
 
-import { HomeGetInitialData } from '~/actions/home-actions';
-
 import { AddTodo, DeleteTodo } from '~/reducers/counter-reducer';
 
 const HomeScreen = (props) => {
     //* INITIAL_HOME_FETCH
-    HomeGetInitialData();
+    // HomeGetInitialData();
     console.log('re-renderd stops');
     useEffect(() => {
         console.log('hello this is useEffect in home screen');

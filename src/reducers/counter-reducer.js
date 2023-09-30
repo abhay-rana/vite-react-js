@@ -1,10 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+import { ResetLocalState } from '~/reducers/container-reducer';
+
 const initialState = {
     counter: 0,
 };
 
-const CounterReducer = createSlice({
+const counterSlice = createSlice({
     name: 'counter',
     initialState,
     reducers: {
@@ -16,6 +18,9 @@ const CounterReducer = createSlice({
         },
     },
     extraReducers: (builder) => {
+        builder.addCase(ResetLocalState.type, (state, action) => {
+            console.log('hello there this is counter reducer');
+        });
         // //fetch
         // builder;
         // .addCase(fetchAttachments.pending, (state) => {
@@ -79,8 +84,5 @@ const CounterReducer = createSlice({
     },
 });
 
-const { actions, reducer } = CounterReducer;
-
-export const { AddTodo, DeleteTodo } = actions;
-
-export default reducer;
+export const { AddTodo, DeleteTodo } = counterSlice.actions;
+export default counterSlice.reducer;
