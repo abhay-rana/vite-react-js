@@ -45,4 +45,8 @@ module.exports = {
         },
     },
     plugins: [],
+    important: true,
 };
+
+
+"https://mrtnschndlr.medium.com/things-to-rethink-with-tailwind-css-part-1-breakpoints-b2809e2bbb2"
