@@ -1,5 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+import { userSignIn } from '~/actions/auth-actions';
+
 const initialState = {
     is_login: false,
     token: '',
@@ -12,7 +14,9 @@ const authSlice = createSlice({
     reducer: {
         setLogin: (state, action) => {},
     },
-    extraReducers: {},
+    extraReducers: (builder) => {
+        builder.addCase(userSignIn.fulfilled, (state, payload) => {});
+    },
 });
 
 export const { setLogin } = authSlice.actions;
