@@ -1,4 +1,3 @@
-/** @type {import('tailwindcss').Config} */
 const colors = require('./src/styles/theme-variable.js');
 
 /** @type {import('tailwindcss').Config} */
@@ -48,5 +47,4 @@ module.exports = {
     important: true,
 };
 
-
-"https://mrtnschndlr.medium.com/things-to-rethink-with-tailwind-css-part-1-breakpoints-b2809e2bbb2"
+('https://mrtnschndlr.medium.com/things-to-rethink-with-tailwind-css-part-1-breakpoints-b2809e2bbb2');
