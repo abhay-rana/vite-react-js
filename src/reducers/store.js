@@ -4,6 +4,7 @@ import storage from 'redux-persist/lib/storage';
 
 import containerReducer from '~/reducers/container-reducer';
 import counterReducer from '~/reducers/counter-reducer';
+import taskReducer from '~/reducers/task-reducer';
 
 import { APP_MODE } from '~/env';
 
@@ -16,6 +17,7 @@ const persistConfig = {
 const reducers = combineReducers({
     counter_store: counterReducer,
     container_store: containerReducer,
+    tasks_store: taskReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, reducers);

@@ -15,17 +15,17 @@ function resetLocalState() {
 }
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-    <React.StrictMode>
-        <Provider store={store}>
-            <PersistGate
-                loading={<p>Loading...</p>}
-                persistor={persistor}
-                onBeforeLift={resetLocalState}
-            >
-                <App />
-                <Toaster />
-            </PersistGate>
-            {/* <ClickToComponent /> */}
-        </Provider>
-    </React.StrictMode>
+    // <React.StrictMode>
+    <Provider store={store}>
+        <PersistGate
+            loading={<p>Loading...</p>}
+            persistor={persistor}
+            onBeforeLift={resetLocalState}
+        >
+            <App />
+            <Toaster />
+        </PersistGate>
+        {/* <ClickToComponent /> */}
+    </Provider>
+    // </React.StrictMode>
 );

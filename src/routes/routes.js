@@ -1,12 +1,14 @@
 import React from 'react';
 import { Route, Router, Switch } from 'wouter';
 
+import ContactScreen from '~/screens/contact-screen';
 import DebounceScreen from '~/screens/debounce-screen';
+import TaskDetailsScreen from '~/screens/test-screens/task-details-screen';
+import TaskListScreen from '~/screens/test-screens/task-list-screen';
 
 const HomeScreen = React.lazy(() => import('~/screens/home-screen'));
 const AboutScreen = React.lazy(() => import('~/screens/about-screen'));
 const ErrorScreen = React.lazy(() => import('~/components/container/404'));
-const ContactScreen = React.lazy(() => import('~/screens/contact-screen'));
 
 const Routes = () => {
     return (
@@ -18,6 +20,17 @@ const Routes = () => {
                     <Route path="/debounce" component={DebounceScreen} />
                     <Route path="/about" component={AboutScreen} />
                     <Route path="/contact" component={ContactScreen} />
+                    {/*  */}
+                    <Route path="/get" component={TaskListScreen} />
+                    <Route
+                        path="/task-details/:id"
+                        component={TaskDetailsScreen}
+                    />
+                    {/* <Route
+                        path="/task-edit/:id"
+                        component={TaskEditCreateScreen}
+                    /> */}
+
                     {/* if none of the route is matched */}
                     <Route component={ErrorScreen} />
                 </Switch>
