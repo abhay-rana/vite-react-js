@@ -25,6 +25,7 @@ const containerSlice = createSlice({
         SetContainerDetails: (state, action) => {
             state[action.payload.key] = action.payload.value;
         },
+
         IncreaseContainerCounter: (state) => {
             state.counter += 1;
         },

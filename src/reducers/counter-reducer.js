@@ -1,5 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+import { FetchCounter } from '~/actions/counter-actions';
+
 import { ResetLocalState } from '~/reducers/container-reducer';
 
 const initialState = {
@@ -16,10 +18,21 @@ const counterSlice = createSlice({
         DeleteTodo: (state, action) => {
             state.counter -= 1;
         },
+        IncreaseOne: (state) => {
+            // setTimeout(() => {
+            // }, 10000);
+            state.counter += 1;
+        },
+        IncreaseTwo: (state) => {
+            state.counter += 2;
+        },
     },
     extraReducers: (builder) => {
         builder.addCase(ResetLocalState.type, (state, action) => {
             console.log('hello there this is counter reducer');
+        });
+        builder.addCase(FetchCounter.fulfilled, (state, { payload }) => {
+            return;
         });
         // //fetch
         // builder;
@@ -84,5 +97,6 @@ const counterSlice = createSlice({
     },
 });
 
-export const { AddTodo, DeleteTodo } = counterSlice.actions;
+export const { AddTodo, DeleteTodo, IncreaseOne, IncreaseTwo } =
+    counterSlice.actions;
 export default counterSlice.reducer;
