@@ -1,4 +1,4 @@
-import React, { memo, useEffect } from 'react';
+import React, { memo, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { FetchCounter, prom1 } from '~/actions/counter-actions';
@@ -29,7 +29,47 @@ const AboutScreen = () => {
     return (
         <>
             <div className="bg-primary">AboutScreen</div>
-            <button onClick={handleClick}>click me </button>
+            <ProductWrapper />
+        </>
+    );
+};
+
+const ProductWrapper = () => {
+    const products = [1, 2, 3, 4];
+    const [state, setState] = useState(0);
+    const dispatch = useDispatch();
+    async function addToWishlist(id) {
+        return dispatch(FetchCounter());
+    }
+    return (
+        <>
+            <div className="flex flex-row gap-2 border border-red-500">
+                {products.map((item, index) => (
+                    <ProductCard
+                        {...{ item, state, setState, addToWishlist }}
+                        key={index}
+                    />
+                ))}
+            </div>
+        </>
+    );
+};
+
+const ProductCard = ({ item, addToWishlist }) => {
+    async function handleWishlist(id) {
+        const a = await addToWishlist(id);
+        console.log(a);
+    }
+    return (
+        <>
+            <div
+                className="h-[50px] w-[100px] cursor-pointer border border-black"
+                onClick={() => handleWishlist(item)}
+                onKeyDown={() => handleWishlist(item)}
+                role="presentation"
+            >
+                {item}
+            </div>
         </>
     );
 };

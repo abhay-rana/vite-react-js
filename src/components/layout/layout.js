@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
 import { memo } from 'react';
 
-import ErrorBoundary from '~/components/container/error-boundary';
+import ErrorBoundary from '~/components/layout/error-boundary';
 
-const Container = ({ children }) => {
+const Layout = ({ children }) => {
     return (
         <ErrorBoundary>
             {/* <Header /> */}
@@ -14,8 +14,8 @@ const Container = ({ children }) => {
     );
 };
 
-export default memo(Container);
+export default memo(Layout);
 
-Container.propTypes = {
+Layout.propTypes = {
     children: PropTypes.node.isRequired,
 };

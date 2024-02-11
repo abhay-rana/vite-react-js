@@ -14,7 +14,7 @@ export function prom2() {
         setTimeout(() => {
             console.log('abhay');
             res(3000);
-        }, 3000);
+        }, 8000);
     });
 }
 
@@ -22,14 +22,14 @@ export function prom3() {
     return new Promise((res, rej) => {
         setTimeout(() => {
             console.log('abhay');
-            res(1);
+            rej(1);
         }, 1);
     });
 }
 
 export const FetchCounter = createAsyncThunk('fetchCounters', async () => {
     try {
-        const res = await Promise.all([prom3(), prom3(), prom3()]);
+        const res = await Promise.allSettled([prom1(), prom2(), prom3()]);
         return res;
     } catch (error) {
         console.error(error);

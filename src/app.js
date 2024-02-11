@@ -1,18 +1,16 @@
 import { memo } from 'react';
-import { useLocation } from 'wouter';
 
 import Routes from '~/routes/routes';
 
-import Container from '~/components/container/container';
+import Layout from '~/components/layout/layout';
 
 const App = () => {
-    const [location, setLocation] = useLocation('');
-    console.log('location');
+    //! container actions fetches for third party and the subscriptions and event listeners
     return (
         <>
-            <Container>
+            <Layout>
                 <Routes />
-            </Container>
+            </Layout>
         </>
     );
 };
