@@ -8,7 +8,7 @@ import TaskListScreen from '~/screens/test-screens/task-list-screen';
 
 const HomeScreen = React.lazy(() => import('~/screens/home-screen'));
 const AboutScreen = React.lazy(() => import('~/screens/about-screen'));
-const ErrorScreen = React.lazy(() => import('~/components/container/404'));
+const ErrorScreen = React.lazy(() => import('~/screens/404'));
 
 const Routes = () => {
     return (
