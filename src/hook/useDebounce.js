@@ -26,8 +26,10 @@ export const useDebounce = (callback) => {
 
 //     const debouncedRequest = useDebounce(() => {
 //         //! send request to the backend
+//** dispatch(GetUserDetails(value)).then((latest_value)=>latest_value) */
 //         //! access to latest state here
 //*         console.log(value);
+
 //     });
 
 //     const onChange = (e) => {

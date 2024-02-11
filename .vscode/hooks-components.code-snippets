@@ -24,12 +24,9 @@
     "useSelector Custom": {
         "scope": "javascript,typescript,javascriptreact",
         "prefix": "selector,useSelector",
-        "body": [
-        "const store = useAppSelector((state) => ({}));"
-        ],
-    "description": "useAppSelector for Redux Toolkit"
-       
-    ,
+        "body": ["const store = useAppSelector((state) => ({}));"],
+        "description": "useAppSelector for Redux Toolkit"
+    },
     "React Memo Component": {
         "scope": "javascript,typescript,javascriptreact",
         "prefix": "ramc",
@@ -73,6 +70,7 @@
     },
     "React Native Memoized Component": {
         "prefix": "rnmc,nativememo",
+        "scope": "javascript,typescript,javascriptreact",
         "body": [
             "import React, { memo } from 'react';",
             "import { View } from 'react-native';",
@@ -96,6 +94,7 @@
     },
     "React Native Connected Component": {
         "prefix": "rncc,nativeconnect",
+        "scope": "javascript,typescript,javascriptreact",
         "body": [
             "import React from 'react';",
             "import { View } from 'react-native';",

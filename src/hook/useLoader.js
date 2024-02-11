@@ -1,5 +1,6 @@
 import { useState } from 'react';
 
+//! for showing the loaders in the button or in the screens
 export const useLoader = (initial_state) => {
     const [loader, setLoader] = useState(initial_state);
 
