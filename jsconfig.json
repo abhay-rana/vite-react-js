@@ -1,9 +1,13 @@
 {
     "compilerOptions": {
+        // "allowJs": true,
+        // "checkJs": true,
+        "jsx": "react-jsx",
         "baseUrl": ".",
         "paths": {
             "~/*": ["src/*"]
-        }
+        },
+        "esModuleInterop": true
     },
     "exclude": ["node_modules", "build"]
 }

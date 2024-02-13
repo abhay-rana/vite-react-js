@@ -27,10 +27,4 @@ hold alt button in windows and option button in mac
 install the rempl browser extension for using this
 https://github.com/lahmatiy/react-render-tracker
 
-## add the redux installed with the thunk and devtools
-
-## add the routing library (wouter)
-
-    - add the error boundary
-    - add the alertify(react-hot-toast)
-    - add the 404 screen
+<!-- hello this is for testing -->
