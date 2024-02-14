@@ -1,15 +1,16 @@
-import React, { memo } from 'react';
+import { memo } from 'react';
 
-import Routes from '~/routes';
+import Routes from '~/routes/routes';
 
-import Container from '~/screens/container/container';
+import Layout from '~/components/layout/layout';
 
 const App = () => {
+    //! container actions fetches for third party and the subscriptions and event listeners
     return (
         <>
-            <Container>
+            <Layout>
                 <Routes />
-            </Container>
+            </Layout>
         </>
     );
 };

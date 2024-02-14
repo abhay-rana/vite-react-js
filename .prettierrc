@@ -11,6 +11,7 @@
         "^~/routes(/.*)?$",
         "^~/screens/(.*)$",
         "^~/components/(.*)$",
+        "^~/stories/(.*)$",
         "^~/actions/(.*)$",
         "^~/reducers(/.*)?$",
         "^~/scripts/(.*)$",

@@ -1,8 +1,9 @@
 ## command for using this repostiory as a tempalate
+
 npx degit abhay-rana/vite-react-js#[branch-name] [YourCustomProjectName]
 
-->eg: npx degit abhay-rana/vite-react-js#master KiteSurfix 
- ->   npx degit abhay-rana/vite-react-js#components-bit DappReact
+->eg: npx degit abhay-rana/vite-react-js#master KiteSurfix
+-> npx degit abhay-rana/vite-react-js#components-bit DappReact
 
 ## add the useTilg hook support for the rendering analysis
 
@@ -27,10 +28,4 @@ hold alt button in windows and option button in mac
 install the rempl browser extension for using this
 https://github.com/lahmatiy/react-render-tracker
 
-## add the redux installed with the thunk and devtools
-
-## add the routing library (wouter)
-
-    - add the error boundary
-    - add the alertify(react-hot-toast)
-    - add the 404 screen
+<!-- hello this is for testing -->
