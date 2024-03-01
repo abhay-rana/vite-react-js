@@ -23,9 +23,21 @@
     },
     "useSelector Custom": {
         "scope": "javascript,typescript,javascriptreact",
-        "prefix": "selector,useSelector",
+        "prefix": "useSelector,selector",
         "body": ["const store = useAppSelector((state) => ({}));"],
         "description": "useAppSelector for Redux Toolkit"
+    },
+    "useDispatch Custom": {
+        "scope": "javascript,typescript,javascriptreact",
+        "prefix": "useDispatch,dispatch",
+        "body": ["const dispatch = useDispatch();"],
+        "description": "useDispatch for Redux Toolkit"
+    },
+    "useLoader Custom": {
+        "scope": "javascript,typescript,javascriptreact",
+        "prefix": "useLoader,loader",
+        "body": ["const [loader,startLoader,endLoader] = useLoader();"],
+        "description": "useLoader for loaders"
     },
     "React Memo Component": {
         "scope": "javascript,typescript,javascriptreact",
