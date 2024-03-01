@@ -18,14 +18,14 @@
     "GET Async Thunk": {
         "prefix": "getApi",
         "body": [
-            "export const ${1:methodName} = createAsyncThunk(\"${1:actionName}\", async ({_},{dispatch,getState}) => {",
+            "export const ${1:methodName} = createAsyncThunk(\"${1:actionName}\", async ({_},{dispatch,getState,rejectWithValue}) => {",
             "\ttry {",
             "\t\tconst res = await getApi(${3:API_ENDPOINT});",
             "\t\treturn { res };",
             "\t} catch (error) {",
             "\t\tconsole.error(error);",
             "\t\tAlertify.error(error.message[0]);",
-            "\t\treturn Promise.reject();",
+            "\t\treturn rejectWithValue(error);",
             "\t}",
             "})"
         ],
@@ -34,14 +34,14 @@
     "POST Async Thunk": {
         "prefix": "postApi",
         "body": [
-            "export const ${1:methodName} = createAsyncThunk(\"${1:actionName}\", async ({...payload},{dispatch,getState}) => {",
+            "export const ${1:methodName} = createAsyncThunk(\"${1:actionName}\", async ({...payload},{dispatch,getState,rejectWithValue}) => {",
             "\ttry {",
             "\t\tconst res = await postApi(${3:API_ENDPOINT},{...payload});",
             "\t\treturn { res };",
             "\t} catch (error) {",
             "\t\tconsole.error(error);",
             "\t\tAlertify.error(error.message[0]);",
-            "\t\treturn Promise.reject();",
+            "\t\treturn rejectWithValue(error);",
             "\t}",
             "})"
         ],
@@ -50,14 +50,14 @@
     "PATCH Async Thunk": {
         "prefix": "patchApi",
         "body": [
-            "export const ${1:methodName} = createAsyncThunk(\"${1:actionName}\", async ({...payload},{dispatch,getState}) => {",
+            "export const ${1:methodName} = createAsyncThunk(\"${1:actionName}\", async ({...payload},{dispatch,getState,rejectWithValue}) => {",
             "\ttry {",
             "\t\tconst res = await patchApi(${3:API_ENDPOINT},{...payload});",
             "\t\treturn { res };",
             "\t} catch (error) {",
             "\t\tconsole.error(error);",
             "\t\tAlertify.error(error.message[0]);",
-            "\t\treturn Promise.reject();",
+            "\t\treturn rejectWithValue(error);",
             "\t}",
             "})"
         ],
@@ -66,14 +66,14 @@
     "DELETE Async Thunk": {
         "prefix": "deleteApi",
         "body": [
-            "export const ${1:methodName} = createAsyncThunk(\"${1:actionName}\", async ({...payload},{dispatch,getState}) => {",
+            "export const ${1:methodName} = createAsyncThunk(\"${1:actionName}\", async ({...payload},{dispatch,getState,rejectWithValue}) => {",
             "\ttry {",
-            "\t\tconst res = await deleteApi(${3:API_ENDPOINT},{...payload});",
+            "\t\tconst res = await deleteApi(${3:API_ENDPOINT});",
             "\t\treturn { res };",
             "\t} catch (error) {",
             "\t\tconsole.error(error);",
             "\t\tAlertify.error(error.message[0]);",
-            "\t\treturn Promise.reject();",
+            "\t\treturn rejectWithValue(error);",
             "\t}",
             "})"
         ],
