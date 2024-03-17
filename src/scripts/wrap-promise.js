@@ -12,9 +12,9 @@ function createAsyncResource(fetchFunction) {
             status = 'success';
             result = data;
         },
-        (err) => {
+        (error_) => {
             status = 'error';
-            error = err;
+            error = error_;
         }
     );
 

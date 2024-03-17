@@ -3,6 +3,8 @@ import { Route, Router, Switch } from 'wouter';
 
 import ContactScreen from '~/screens/contact-screen';
 import DebounceScreen from '~/screens/debounce-screen';
+import ProductDetailScreen from '~/screens/product-detail-screen';
+import ProductsScreen from '~/screens/products-screen';
 import TaskDetailsScreen from '~/screens/test-screens/task-details-screen';
 import TaskListScreen from '~/screens/test-screens/task-list-screen';
 
@@ -19,6 +21,11 @@ const Routes = () => {
                     <Route path="/components" component={HomeScreen} />
                     <Route path="/debounce" component={DebounceScreen} />
                     <Route path="/about" component={AboutScreen} />
+                    <Route path="/products" component={ProductsScreen} />
+                    <Route
+                        path="/product/:id"
+                        component={ProductDetailScreen}
+                    />
                     <Route path="/contact" component={ContactScreen} />
                     {/*  */}
                     <Route path="/get" component={TaskListScreen} />

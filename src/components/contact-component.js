@@ -1,13 +1,14 @@
 import React, { memo } from 'react';
 
-import { fetchPosts } from '~/scripts/wrap-promise';
+import createAsyncResource from '~/scripts/wrap-promise';
 
-const postsData = fetchPosts();
-console.log(postsData);
+const fetchPosts = createAsyncResource(() =>
+    fetch('https://dummyjson.com/products').then((res) => res.json())
+);
 
 const ContactComponent = () => {
     //* INITIAL_FETCH
-    const posts = postsData();
+    const posts = fetchPosts.read();
     console.log('posts', posts);
     return (
         <>
