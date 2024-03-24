@@ -43,7 +43,7 @@
         "scope": "javascript,typescript,javascriptreact",
         "prefix": "ramc",
         "body": [
-            "import React, { memo } from 'react';",
+            "import { memo } from 'react';",
             "",
             "const ${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g} = () => {",
             "    return (",
