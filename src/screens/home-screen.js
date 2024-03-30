@@ -43,6 +43,7 @@ const HomeScreen = (props) => {
                 </div>
                 <img src={`${BASE_IMAGE_URL}/ss123.png`} alt="tags" />
                 <img src={`${BASE_IMAGE_URL}/images/ss2.png`} alt="tags" />
+                <img src={`/public/assets/ss123.png`} alt="tags" />
                 <div>
                     <div className="">Counter Applications</div>
 

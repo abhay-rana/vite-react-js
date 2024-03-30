@@ -30,7 +30,7 @@ const AboutScreen = () => {
     console.log('store', store);
     return (
         <>
-            <div className="bg-primary">AboutScreen</div>
+            <div className="bg-danger">AboutScreen</div>
             <ProductWrapper />
         </>
     );
