@@ -6,6 +6,8 @@ import { useLocation } from 'wouter';
 
 import { AddTodo, DeleteTodo } from '~/reducers/counter-reducer';
 
+import { BASE_IMAGE_URL } from '~/env';
+
 const HomeScreen = (props) => {
     //* INITIAL_HOME_FETCH
     // HomeGetInitialData();
@@ -39,8 +41,11 @@ const HomeScreen = (props) => {
                         Go To Contact
                     </button>
                 </div>
+                <img src={`${BASE_IMAGE_URL}/ss123.png`} alt="tags" />
+                <img src={`${BASE_IMAGE_URL}/images/ss2.png`} alt="tags" />
                 <div>
                     <div className="">Counter Applications</div>
+
                     <button
                         onClick={() => props.Increment_Counter()}
                         className="rounded-lg bg-red-400 p-2"
