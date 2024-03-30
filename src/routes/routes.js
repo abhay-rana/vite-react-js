@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Router, Switch } from 'wouter';
 
-import ContactScreen from '~/screens/contact-screen';
+// import ContactScreen from '~/screens/contact-screen';
 import DebounceScreen from '~/screens/debounce-screen';
 import ProductDetailScreen from '~/screens/product-detail-screen';
 import ProductsScreen from '~/screens/products-screen';
@@ -26,7 +26,7 @@ const Routes = () => {
                         path="/product/:id"
                         component={ProductDetailScreen}
                     />
-                    <Route path="/contact" component={ContactScreen} />
+                    {/* <Route path="/contact" component={ContactScreen} /> */}
                     {/*  */}
                     <Route path="/get" component={TaskListScreen} />
                     <Route

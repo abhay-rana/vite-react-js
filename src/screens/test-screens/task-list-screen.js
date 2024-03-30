@@ -1,56 +1,104 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-import { useEffect, useState } from 'react';
-import { connect } from 'react-redux';
-import { Link, useLocation } from 'wouter';
+import { memo, useEffect, useState } from 'react';
+import {
+    useAddTaskMutation,
+    useGetTasksQuery,
+    useUpdateTaskMutation,
+} from '~/api-services/todo-services';
 
 const TaskListScreen = () => {
-    const [state, setsState] = useState('');
-    const [_, setLocation] = useLocation();
-    useEffect(() => {}, []);
+    const [value, setValue] = useState('');
+    const { data, isError, isFetching, isLoading, refetch, isSuccess } =
+        useGetTasksQuery();
+    const [addTask] = useAddTaskMutation();
+    function createTask() {
+        addTask({ description: value, status: false });
+    }
+
+    console.log({ isFetching, isLoading, data });
+    if (isFetching) {
+        return (
+            <>
+                <div>Loading...</div>
+            </>
+        );
+    }
+
     return (
         <>
-            <div className="flex flex-col gap-4">
-                <div>
-                    <p className="text-18 font-extrabold">Task Lists Screen</p>
-                </div>
-                <div>
-                    go to task details screen
-                    <Link href="/contact" target="_blank">
-                        <a target="_blank">
-                            <button
-                            // onClick={() => setLocation('/tasks-details/123')}
-                            >
-                                goto
-                            </button>
-                        </a>
-                    </Link>
-                </div>
-                <div>
-                    <Link href="/contact">
-                        <p>Link Tag</p>
-                    </Link>
-                </div>
-                <div>
-                    <Link href="/contact">Link Tag</Link>
-                </div>
-                <div>
-                    <a href="https://www.facebook.com">Facebook</a>
+            <div className="text-center text-16">TaskListScreen</div>
+            <div className="flex h-full w-full flex-row items-center justify-center">
+                <div className="flex h-1/2 w-1/2 flex-col gap-2 border-2 bg-gray-200 p-4">
+                    {/* creating a task */}
+                    <div className="flex flex-row gap-2">
+                        <div>
+                            <input
+                                value={value}
+                                onChange={(event) =>
+                                    setValue(event.target.value)
+                                }
+                                placeholder="Enter the task"
+                            />
+                        </div>
+                        <div onClick={createTask}>Create Task</div>
+                    </div>
+                    {/* rendering of task */}
+                    <TaskListWrapper data={data.data} />
                 </div>
             </div>
         </>
     );
 };
 
-const mapStateToProps = (state) => ({});
-const mapDispatchToProps = (dispatch) => ({});
+const TaskListWrapper = memo(({ data }) => {
+    console.log('render tasklist wrapper');
+    const [updateTasks] = useUpdateTaskMutation();
+    function deleteTodos() {}
 
-export default connect(mapStateToProps, mapDispatchToProps)(TaskListScreen);
-TaskListScreen.displayName = 'TaskListScreen';
+    function updateTodos(id, value) {
+        updateTasks({ _id: id, status: value });
+    }
+    return (
+        <>
+            {data.map((item) => (
+                <TaskListCard
+                    key={item._id}
+                    {...{ ...item, updateTodos, deleteTodos }}
+                />
+            ))}
+        </>
+    );
+});
 
-//agar mere passs link tag hai toh voh redirect nahi ho raha externall sites par
-//agar mere pass link tag haoi toh voh use ek url ki tarah  treat nahi kar raha sirf app main rediret ji kar raha hai as setLocation
-//i have to customize the link component so it works well with the internal links and the outer links
-//it treat all the links as the links wheter it is internal or external
-// i dont use the a href tag for the internal links as it reloads the page
-// so in that case wrap the ahref tag with the link tag with the url to the link tag
-// as the browser detects the ahref tag
+TaskListWrapper.displayName = 'TaskListWrapper';
+
+const TaskListCard = memo(
+    ({ description, status, _id, updateTodos, deleteTodos }) => {
+        console.log('renders tasks list card');
+        return (
+            <>
+                <div className="flex flex-row gap-2">
+                    {/* checkbox */}
+                    <div>
+                        <input
+                            type="checkbox"
+                            checked={status}
+                            onChange={(event) =>
+                                updateTodos(_id, event.target.checked)
+                            }
+                        />
+                    </div>
+                    {/* task */}
+                    <div>{description}</div>
+                    {/* delete task */}
+                    <div onClick={deleteTodos}>
+                        <button>Delete</button>
+                    </div>
+                </div>
+            </>
+        );
+    }
+);
+
+TaskListCard.displayName = 'TaskListCard';
+
+export default memo(TaskListScreen);
