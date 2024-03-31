@@ -1,7 +1,9 @@
 import { Suspense } from 'react';
-import { connect } from 'react-redux';
+import { connect, useDispatch } from 'react-redux';
+import { Button, ContactComponent } from '~/components';
+import { useAppSelector, useDebounce, useLoader } from '~/hook';
 
-import ContactComponent from '~/components/contact-component';
+import ComponentOne from '~/components/component-one';
 
 import {
     IncreaseContainerCounter,
@@ -11,11 +13,15 @@ import { AddTodo } from '~/reducers/counter-reducer';
 
 const ContactScreen = (props) => {
     console.log('contact screens re-render');
+    useDebounce();
+    const store = useAppSelector((state) => ({}));
+    const [loader, startLoader, endLoader] = useLoader();
     return (
         <>
             <div>ContactScreen</div>
             <Suspense fallback={<h1>Spinner....</h1>}>
                 <ContactComponent />
+                <ComponentOne />
             </Suspense>
             <div className="border border-success">
                 <div className="flex flex-col gap-4">
@@ -39,12 +45,12 @@ const ContactScreen = (props) => {
                             )
                         }
                     />
-                    <button onClick={() => props.IncreaseContainerCounter()}>
+                    <Button onClick={() => props.IncreaseContainerCounter()}>
                         Increase Count:{props.counter}
-                    </button>
-                    <button onClick={() => props.Increment_Counter()}>
+                    </Button>
+                    <Button onClick={() => props.Increment_Counter()}>
                         Increase Count:{props.counter}
-                    </button>
+                    </Button>
                 </div>
             </div>
         </>
