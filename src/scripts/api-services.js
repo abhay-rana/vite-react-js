@@ -1,7 +1,6 @@
 import axios from 'axios';
-
-import { Logout } from '~/reducers/container-reducer';
-import store from '~/reducers/store';
+import { Logout } from '~/redux/slices/container-slice';
+import store from '~/redux/store';
 
 import { ProjectUrl } from '~/env';
 

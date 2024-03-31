@@ -3,7 +3,7 @@ import {
     useAddTaskMutation,
     useGetTasksQuery,
     useUpdateTaskMutation,
-} from '~/api-services/todo-services';
+} from '~/redux/services/todo-services';
 
 const TaskListScreen = () => {
     const [value, setValue] = useState('');

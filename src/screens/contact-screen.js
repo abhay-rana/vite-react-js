@@ -2,14 +2,13 @@ import { Suspense } from 'react';
 import { connect, useDispatch } from 'react-redux';
 import { Button, ContactComponent } from '~/components';
 import { useAppSelector, useDebounce, useLoader } from '~/hook';
-
-import ComponentOne from '~/components/component-one';
-
 import {
     IncreaseContainerCounter,
     SetContainerDetails,
-} from '~/reducers/container-reducer';
-import { AddTodo } from '~/reducers/counter-reducer';
+} from '~/redux/slices/container-slice';
+import { AddTodo } from '~/redux/slices/counter-slice';
+
+import ComponentOne from '~/components/component-one';
 
 const ContactScreen = (props) => {
     console.log('contact screens re-render');

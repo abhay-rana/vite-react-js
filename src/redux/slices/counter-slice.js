@@ -1,8 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
-
-import { FetchCounter } from '~/actions/counter-actions';
-
-import { ResetLocalState } from '~/reducers/container-reducer';
+import { FetchCounter } from '~/redux/actions/counter-actions';
+import { ResetLocalState } from '~/redux/slices/container-slice';
 
 const initialState = {
     counter: 0,

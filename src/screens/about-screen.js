@@ -1,10 +1,8 @@
 import React, { memo, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLoader } from '~/hook/useLoader';
-
-import { FetchCounter, prom1 } from '~/actions/counter-actions';
-
-import { IncreaseOne, IncreaseTwo } from '~/reducers/counter-reducer';
+import { FetchCounter, prom1 } from '~/redux/actions/counter-actions';
+import { IncreaseOne, IncreaseTwo } from '~/redux/slices/counter-slice';
 
 const AboutScreen = () => {
     const store = useSelector((state) => state.counter_store.counter);

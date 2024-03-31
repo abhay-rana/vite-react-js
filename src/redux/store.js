@@ -1,12 +1,11 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { persistReducer, persistStore } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-import { todosApi } from '~/api-services/todo-services';
-
-import authReducer from '~/reducers/auth-reducer';
-import containerReducer from '~/reducers/container-reducer';
-import counterReducer from '~/reducers/counter-reducer';
-import taskReducer from '~/reducers/task-reducer';
+import { todosApi } from '~/redux/services/todo-services';
+import authReducer from '~/redux/slices/auth-slice';
+import containerReducer from '~/redux/slices/container-slice';
+import counterReducer from '~/redux/slices/counter-slice';
+import taskReducer from '~/redux/slices/task-slice';
 
 import { APP_MODE } from '~/env';
 

@@ -1,6 +1,5 @@
 import { connect } from 'react-redux';
-
-import { SetSearch } from '~/actions/home-actions';
+import { SetSearch } from '~/redux/actions/home-actions';
 
 const DebounceScreen = (props) => {
     return (
