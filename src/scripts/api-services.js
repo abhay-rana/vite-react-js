@@ -98,19 +98,34 @@ api.interceptors.response.use(
 export const postApi = async (
     path,
     data = {},
-    headers = { Accept: 'application/json' }
+    headers = {
+        Accept: 'application/json',
+    },
+    cancelToken
 ) => {
     try {
-        const response = await api.post(path, data, { headers });
+        const response = await api.post(path, data, {
+            headers: headers,
+            cancelToken,
+        });
         return response;
     } catch (error) {
         return handleApiError(error);
     }
 };
 
-export const getApi = async (path) => {
+export const getApi = async (
+    path,
+    headers = {
+        Accept: 'application/json',
+    },
+    cancelToken
+) => {
     try {
-        const response = await api.get(path);
+        const response = await api.get(path, {
+            headers: headers,
+            cancelToken,
+        });
         return response.data;
     } catch (error) {
         return handleApiError(error);

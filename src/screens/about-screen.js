@@ -1,25 +1,11 @@
-import React, { memo, useEffect, useState } from 'react';
+import { memo, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useLoader } from '~/hook/useLoader';
-import { FetchCounter, prom1 } from '~/redux/actions/counter-actions';
-import { IncreaseOne, IncreaseTwo } from '~/redux/slices/counter-slice';
+import { FetchCounter } from '~/redux/actions/counter-actions';
 
 const AboutScreen = () => {
     const store = useSelector((state) => state.counter_store.counter);
-    const [loader, startLoader, endLoader] = useLoader();
+
     const dispatch = useDispatch();
-
-    function handleClick() {
-        console.log('runs');
-        dispatch(IncreaseOne());
-        dispatch(IncreaseTwo());
-        console.log('runs 1');
-    }
-
-    async function run() {
-        const data = await prom1();
-        console.log(data);
-    }
 
     useEffect(() => {
         dispatch(FetchCounter());
