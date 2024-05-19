@@ -1,12 +1,11 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
+import { APP_MODE } from 'env';
 import { persistReducer, persistStore } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import authReducer from '~/redux/slices/auth-slice';
 import containerReducer from '~/redux/slices/container-slice';
 import counterReducer from '~/redux/slices/counter-slice';
 import taskReducer from '~/redux/slices/task-slice';
-
-import { APP_MODE } from '~/env';
 
 const persistConfig = {
     key: 'root',

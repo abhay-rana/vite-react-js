@@ -1,11 +1,10 @@
+import { BASE_IMAGE_URL } from 'env';
 import PropTypes from 'prop-types';
 import { useEffect } from 'react';
 import { toast } from 'react-hot-toast';
 import { connect } from 'react-redux';
 import { useLocation } from 'wouter';
 import { AddTodo, DeleteTodo } from '~/redux/slices/counter-slice';
-
-import { BASE_IMAGE_URL } from '~/env';
 
 const HomeScreen = (props) => {
     //* INITIAL_HOME_FETCH

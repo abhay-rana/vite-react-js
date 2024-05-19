@@ -1,8 +1,7 @@
 import axios from 'axios';
+import { ProjectUrl } from 'env';
 import { Logout } from '~/redux/slices/container-slice';
 import store from '~/redux/store';
-
-import { ProjectUrl } from '~/env';
 
 //* 2xx ->  Success
 //* 4xx ->  client side error

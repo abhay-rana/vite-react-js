@@ -1,5 +1,5 @@
 // track error with sentry
-import Alertify from '~/scripts/alertify';
+import Alertify from '~/services/alertify-service';
 
 // import * as Sentry from "@sentry/react";
 // export const SentryLogger = Sentry;
