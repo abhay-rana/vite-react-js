@@ -26,9 +26,7 @@ const counterSlice = createSlice({
         },
     },
     extraReducers: (builder) => {
-        builder.addCase(ResetLocalState.type, (state, action) => {
-            console.log('hello there this is counter reducer');
-        });
+        builder.addCase(ResetLocalState.type, (state, action) => {});
         builder.addCase(FetchCounter.fulfilled, (state, { payload }) => {
             return;
         });

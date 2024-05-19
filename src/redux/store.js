@@ -1,7 +1,6 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { persistReducer, persistStore } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-import { todosApi } from '~/redux/services/todo-services';
 import authReducer from '~/redux/slices/auth-slice';
 import containerReducer from '~/redux/slices/container-slice';
 import counterReducer from '~/redux/slices/counter-slice';
@@ -20,7 +19,6 @@ const reducers = combineReducers({
     container_store: containerReducer,
     auth_store: authReducer,
     tasks_store: taskReducer,
-    [todosApi.reducerPath]: todosApi.reducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, reducers);
@@ -33,7 +31,7 @@ const store = configureStore({
             thunk: true,
             serializableCheck: false,
             immutableCheck: false,
-        }).concat(todosApi.middleware),
+        }),
 });
 
 export const persistor = persistStore(store);

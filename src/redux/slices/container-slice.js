@@ -18,7 +18,6 @@ const containerSlice = createSlice({
     initialState,
     reducers: {
         ResetLocalState: (state, action) => {
-            console.log('this is container reducer');
             return { ...state, ...LOCAL_STATE };
         },
         Logout: (state, action) => {},
